@@ -1,0 +1,21 @@
+
+Build Information:
+- Build Date: 27.05.2025, 23:54:58
+- Build Date(UTC): Tue, 27 May 2025 20:54:58 GMT
+- Git Commit: d790e6d02a428b9c193f65e00be13e89bff8af69
+- Git Branch: main
+- Project Version: 1.2.0
+- Webpack Version: 5.98.0
+- Node.js Version: v22.8.0
+- Build Duration: 13.792 seconds
+
+Output Files:
+- c2dbcaa5211ef7f6c94e.svg
+- 3d7f622efe02fea03543.svg
+- index.html
+- app.399e961316c126a5437b.js.LICENSE.txt
+- app.e58dbc267a82931345b1.js
+- app.399e961316c126a5437b.js
+- app.e58dbc267a82931345b1.js.map
+- app.399e961316c126a5437b.js.map
+      

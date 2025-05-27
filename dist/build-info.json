@@ -1,0 +1,22 @@
+{
+  "buildInformation": {
+    "buildDate": "27.05.2025, 23:54:58",
+    "buildDateUTC": "Tue, 27 May 2025 20:54:58 GMT",
+    "gitCommit": "d790e6d02a428b9c193f65e00be13e89bff8af69",
+    "gitBranch": "main",
+    "projectVersion": "1.2.0",
+    "webpackVersion": "5.98.0",
+    "nodeVersion": "v22.8.0",
+    "buildDuration": "13.792 seconds"
+  },
+  "outputFiles": [
+    "c2dbcaa5211ef7f6c94e.svg",
+    "3d7f622efe02fea03543.svg",
+    "index.html",
+    "app.399e961316c126a5437b.js.LICENSE.txt",
+    "app.e58dbc267a82931345b1.js",
+    "app.399e961316c126a5437b.js",
+    "app.e58dbc267a82931345b1.js.map",
+    "app.399e961316c126a5437b.js.map"
+  ]
+}
