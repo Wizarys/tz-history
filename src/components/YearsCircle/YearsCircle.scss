@@ -1,0 +1,330 @@
+@use './../../base' as *;
+
+.center-y {
+  top: 50%;
+  transform: translateY(-50%); 
+}
+.center-x {
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.hidden {
+  display: none;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 80px;
+  overflow: hidden;
+  font-family: 'PT Sans', sans-serif;
+  background-color: $color-primary-light;
+  border: 1px solid $color-border;
+  @include media-mobile {
+    padding: 60px 20px;
+  }
+
+  .line-y {
+    position: absolute;
+    top: -140px;
+    border: 1px solid $color-primary;
+    width: 1px;
+    height: 100%;
+    opacity: .1;
+    @include media-mobile {
+      display: none;
+    }
+  }   
+
+  .line-x {
+    position: absolute;
+    right: -80px;
+    border: 1px solid $color-primary;
+    width: 1px;
+    width: 100%;
+    opacity: .1;
+    @include media-mobile {
+      display: none;
+    }
+  }   
+
+  .timeline-title {
+    position: absolute;
+    top: 70px;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+    color: $color-primary;  
+    @include media-mobile {
+      font-size: 20px;
+    }  
+
+    .timeline-line {
+      position: absolute;
+      left: -80px;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, $color-blue, $color-fuschia);
+      display: inline-block;
+      @include media-mobile {
+        display: none;
+      }
+    }
+  }
+
+  .timeline-years {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 0 0;
+    gap: 40px;
+    position: relative;
+    @include media-mobile {
+      min-height: 200px;
+      margin-top: 100px;
+    }  
+
+    .year {
+      position: absolute;
+      font-size: 200px;
+      font-weight: bold;
+      z-index: 1;      
+      @media only screen and (max-width: 1400px) {
+        font-size: 12vw;
+      }  
+      @include media-mobile {
+        font-size: 56px;
+      }
+
+      &.blue {
+        color: $color-iris;
+        left: 10%;
+        @include media-mobile {
+          left: 0;
+        }
+      }
+
+      &.pink {
+        color: $color-fuschia;
+        right: 12%;
+        @include media-mobile {
+          right: 0;
+        }       
+      }
+    }
+
+    .line-mobile {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid $color-border-light;
+      @include media-mobile {
+        display: block;
+      }
+    }
+
+    .theme-mobile {
+      position: absolute;
+      display: none;
+      bottom: 20px;
+      left: 0;
+      @include media-mobile {
+        display: block;        
+      }
+    }
+
+    .year-circle {
+      position: relative; 
+      z-index: 2;
+      width: 530px;
+      height: 530px;
+      border: 1px solid $color-border;
+      border-radius: 50%;
+      color: $color-primary;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 10px;      
+      @include media-mobile {
+        display: none;
+      }        
+
+      .circle-number {
+        position: absolute;
+        background: $color-primary;
+        border-radius: 50%;
+        border: 1px solid $color-border-circle;
+        width: 11%;
+        height: 11%;
+        cursor: pointer;
+        text-align: center;
+        font-weight: bold;
+        transform: scale(0.2);        
+        transition: transform 0.2s;
+        &:hover {          
+          transform: scale(1);
+          background-color: white;
+          .circle-digit {
+            opacity: 1;
+          }
+        }
+        &.active {          
+          transform: scale(1);
+          background-color: white;
+          .circle-label {
+            opacity: 1;
+            transition: opacity 1s 0.5s;
+          }
+          .circle-digit {
+            opacity: 1;
+          }
+        }
+      }
+
+      .circle-inside {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .circle-digit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        opacity: 0;  
+      }
+
+      .circle-label {
+        position: absolute;
+        opacity: 0;
+        left: 130%;
+        top: 50%;
+        transform: translateY(-50%); 
+        transition: none;  
+      }
+    }
+  }
+
+  .bottom-flex {
+    display: flex;
+    flex-direction: column;
+    @include media-mobile {
+      flex-direction: column-reverse;
+    }     
+  }
+
+  .timeline-events {
+    position: relative;
+    opacity: 0;
+    max-width: 95%;
+    margin-left: 0;
+
+    .swiper-button-prev {
+      position: absolute;
+      left: -70px; 
+      transform: scaleX(-1) translateY(-50%);
+      @include media-mobile {
+        display: none;
+      }
+    }
+    .swiper-button-next {
+      position: absolute;
+      right: -70px;
+      @include media-mobile {
+        display: none;
+      }
+    }
+    .swiper-button-disabled {
+      display: none;
+    }
+
+    &.active {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .event-block {
+      padding: 10px;
+
+      .event-year {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 25px;
+        color: $color-event-year;
+        margin-bottom: 0;
+      }
+
+      .event-text {
+        font-size: 20px;
+        color: $color-primary;
+        @include media-mobile {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .timeline-footer {
+    display: flex;
+    margin-top: 30px;
+
+    .page-indicator {
+      margin-left: 5px;
+      font-size: 14px;
+      color: $color-primary;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+
+      .arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+        .arrow-img {        
+          border-radius: 50%;
+          transition: background-color 0.3s;
+          &:hover {
+            background-color: white;
+          }
+          @include media-mobile {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+      .arrow-right {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  .bottom-nav {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-left: 20px;
+    @include media-mobile {
+      display: flex;
+    }
+
+    .bottom-circle {      
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      background-color: $color-primary;
+      opacity: 0.4;
+      &.active {
+        opacity: 1;
+      }
+    }
+  }  
+}

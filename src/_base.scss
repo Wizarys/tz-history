@@ -1,0 +1,32 @@
+// Color Variables
+$color-primary: #42567A;
+$color-primary-light: #f8f9fc;
+$color-iris: #5D5FEF;
+$color-blue: #3877EE;
+$color-fuschia: #EF5DA8;
+$color-border: #dcdfe6;
+$color-border-light: #C7CDD9;
+$color-border-circle: #ccc;
+$color-event-year: #6a6aff;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@mixin media-mobile {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+.center-y {
+  top: 50%;
+  transform: translateY(-50%); 
+}
+.center-x {
+  left: 50%;
+  transform: translateX(-50%); 
+}
+.hidden {
+  display: none;
+}

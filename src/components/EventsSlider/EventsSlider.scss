@@ -1,0 +1,111 @@
+@use './../../base' as *;
+
+.timeline-container {
+  .timeline-events {
+    position: relative;
+    opacity: 0;
+    max-width: 95%;
+    margin-left: 0;
+
+    .swiper-button-prev {
+      position: absolute;
+      left: -70px; 
+      transform: scaleX(-1) translateY(-50%);
+      @include media-mobile {
+        display: none;
+      }
+    }
+    .swiper-button-next {
+      position: absolute;
+      right: -70px;
+      @include media-mobile {
+        display: none;
+      }
+    }
+    .swiper-button-disabled {
+      display: none;
+    }
+
+    &.active {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .event-block {
+      padding: 10px;
+
+      .event-year {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 25px;
+        color: $color-event-year;
+        margin-bottom: 0;
+      }
+
+      .event-text {
+        font-size: 20px;
+        color: $color-primary;
+        @include media-mobile {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .timeline-footer {
+    display: flex;
+    margin-top: 30px;
+
+    .page-indicator {
+      margin-left: 5px;
+      font-size: 14px;
+      color: $color-primary;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+
+      .arrow {
+        background: none;
+        border: none;
+        cursor: pointer;
+        .arrow-img {        
+          border-radius: 50%;
+          transition: background-color 0.3s;
+          &:hover {
+            background-color: white;
+          }
+          @include media-mobile {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+      .arrow-right {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  .bottom-nav {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-left: 20px;
+    @include media-mobile {
+      display: flex;
+    }
+
+    .bottom-circle {      
+      width: 6px;
+      height: 6px;
+      border-radius: 100%;
+      background-color: $color-primary;
+      opacity: 0.4;
+      &.active {
+        opacity: 1;
+      }
+    }
+  } 
+}
