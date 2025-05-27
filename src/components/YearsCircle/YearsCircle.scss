@@ -1,17 +1,5 @@
 @use './../../base' as *;
 
-.center-y {
-  top: 50%;
-  transform: translateY(-50%); 
-}
-.center-x {
-  left: 50%;
-  transform: translateX(-50%); 
-}
-.hidden {
-  display: none;
-}
-
 .timeline-container {
   position: relative;
   max-width: 1440px;
