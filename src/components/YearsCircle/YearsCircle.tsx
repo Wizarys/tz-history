@@ -74,7 +74,6 @@ const YearsCircle = () => {
     const lineX = document.querySelector('.line-x') as HTMLElement | null;
     const lineY = document.querySelector('.line-y') as HTMLElement | null;
     if (lineY && lineX && container) {
-        console.log(container.offsetHeight)
         lineY.style.height = `${container.offsetHeight}px`;
         lineX.style.width = `${container.offsetWidth}px`;     
     }
